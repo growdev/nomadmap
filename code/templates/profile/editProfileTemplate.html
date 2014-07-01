@@ -1,0 +1,32 @@
+<h2><%- user.get('name') %></h2>
+<div class="userProfile">
+	<form class="edit-profile-form">
+		<div class="row" >
+			<label for="name">Name:</label>
+			<input name="name" value="<%- user.get('name') %>" required/>
+		</div>
+		<div class="row">
+			<label for="email">Email:</label>
+			<input name="email" value="<%- user.get('email') %>" required/>
+		</div>
+		<div class="row">
+			<label for="whatIDo">What I Do:</label>
+			<input name="whatIDo" value="<%- user.get('whatIDo') %>" required/>
+		</div>
+		<div class="row">
+			<label for="aboutMe">About Me:</label>
+			<textarea name="aboutMe"><%- user.get('aboutMe') %></textarea>
+		</div>
+		<% _.each(['facebook', 'twitter', 'foursquare', 'website1', 'website2', 'website3', 'website4', 'website5'],
+				function (value, key, list) { 
+		%>
+			<div class="row">
+				<label for="<%= value %>"><%- value.toTitleCase() %></label>
+				<input name="<%= value %>" value="<%- user.get(value) %>"/>
+			</div>
+		<%		}
+			); %> 
+		
+		<button>Save</button>
+	</form>
+</div>

@@ -6,17 +6,21 @@ define([
   'parse',
   'views/home/HomeView',
   'views/profile/ProfileView',
+  'views/profile/EditProfileView',
   'views/security/LoginView',
   'views/security/SignupView',
-  'views/footer/FooterView'
-], function($, _, Backbone, Parse, HomeView, ProfileView, LoginView, SignupView, FooterView) {
+  'views/footer/FooterView',
+  'views/feedback/FeedbackView',
+], function($, _, Backbone, Parse, HomeView, ProfileView, EditProfileView, LoginView, SignupView, FooterView, FeedbackView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
-      'profile': 'showProfile',
+      'profile': 'editProfile',
       
       'signup' : 'signup',
+
+      'logoff' : 'logoff',
 
       // Default
       '*actions': 'defaultAction'
@@ -32,22 +36,34 @@ define([
       app_router.navigate(loc, true);
     };
 
+    if (Parse.User.current()) { // if user refreshes page make sure login stays in place
+        $('.logoff').remove(); 
+        $('.nav').append("<li class='logoff'><a href='#/logoff'>Logoff</a></li>");
+    }
+
     app_router.on('route:signup', function (actions) {
         var signupView = new SignupView();
         signupView.render();
     });
 
-    app_router.on('route:showProfile', function(){
+    app_router.on('route:editProfile', function(){
     
         if (!Parse.User.current()) {
           var loginView = new LoginView();
           loginView.render();
+          FeedbackView.prototype.errorMessage("You must sign in to view this page");
           return;
         } 
 
-        var profileView = new ProfileView();
-        profileView.render();
+        var editProfileView = new EditProfileView();
+        editProfileView.render();
+    });
 
+    app_router.on('route:logoff', function(actions) {
+      Parse.User.logOut();
+      app_router.navigate('login', true);
+      $('.logoff').remove();
+      FeedbackView.prototype.successMessage("You are logged out");
     });
 
     app_router.on('route:defaultAction', function (actions) {
@@ -55,6 +71,7 @@ define([
         if (!Parse.User.current()) {
           var loginView = new LoginView();
           loginView.render();
+          FeedbackView.prototype.errorMessage("You must sign in to view this page");
           return;
         } 
 

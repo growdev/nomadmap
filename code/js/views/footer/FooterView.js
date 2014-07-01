@@ -18,7 +18,7 @@ define([
     render: function(){
 
       var data = {
-        year: "2014",
+        year: "" + new Date().getFullYear(),
         _: _ 
       };
 

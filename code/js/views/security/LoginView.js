@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'parse',
+  'views/feedback/FeedbackView',
   'text!templates/security/loginTemplate.html'
-], function($, _, Backbone, Parse, loginTemplate){
+], function($, _, Backbone, Parse, FeedbackView, loginTemplate){
 
   var LoginView = Backbone.View.extend({
     el: $("#page"),
@@ -25,13 +26,21 @@ define([
       var username = this.$("#login-username").val();
       var password = this.$("#login-password").val();
       
+      FeedbackView.prototype.activityMessage("Logging in");
+      
       Parse.User.logIn(username, password, {
         success: function(user) {
+          $('.logoff').remove(); // for some reason if we've already logged in this call back gets hit once for each previous login so remove the rogue logins
+          $('.nav').append("<li class='logoff'><a href='#/logoff'>Logoff</a></li>");
+
+          FeedbackView.prototype.successMessage("Welcome, " + user.get('name'));
+        
           LoginView.prototype.goTo("#/profile");
         },
 
         error: function(user, error) {
-          self.$(".login-form .error").html("Invalid username or password. Please try again.").show();
+
+          FeedbackView.prototype.errorMessage("Invalid username or password. Please try again.");
           self.$(".login-form button").removeAttr("disabled");
         }
       });

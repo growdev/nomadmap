@@ -9,23 +9,27 @@ require.config({
     templates: '../templates'
   },
   shim: {
-      underscore: {
-          exports: '_'
-      },
-      backbone: {
-          deps: [
-              'underscore',
-              'jquery'
-          ],
-          exports: 'Backbone'
-      },
-      bootstrap: {
-          deps: ['jquery'],
-          exports: 'jquery'
-      },
+      // underscore: {
+      //     exports: '_'
+      // },
+      // backbone: {
+      //     deps: [
+      //         'underscore',
+      //         'jquery'
+      //     ],
+      //     exports: 'Backbone'
+      // },
+      // bootstrap: {
+      //     deps: ['jquery'],
+      //     exports: 'jquery'
+      // },
       parse: {
           deps: ['jquery', 'underscore'],
           exports: 'Parse'
+      }, 
+      'jquery.toTitleCase': {
+        deps: ['jquery'],
+        wrapShim: true
       }
   }
 });

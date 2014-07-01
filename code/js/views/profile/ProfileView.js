@@ -2,9 +2,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/profile/ProfileView',
+  'parse',
+  'jquery/jquery.toTitleCase',
   'text!templates/profile/profileTemplate.html'
-], function($, _, Backbone, ProfileView, profileTemplate){
+], function($, _, Backbone, Parse, toTitleCase, profileTemplate){
 
   var ProfileView = Backbone.View.extend({
     el: $("#page"),
@@ -13,7 +14,8 @@ define([
       $('.menu li').removeClass('active');
       $('.menu li a[href="'+window.location.hash+'"]').parent().addClass('active');
       
-      var compiledTemplate = _.template( profileTemplate, {} );
+      var user = Parse.User.current();
+      var compiledTemplate = _.template( profileTemplate, {user: user} );
       this.$el.html(compiledTemplate);
     }
   });

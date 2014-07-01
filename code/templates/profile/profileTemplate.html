@@ -1,1 +1,33 @@
-<p>Profile template</p>
+<h2><%- user.get('name') %></h2>
+<div class="userProfile">
+	<div class="profilePic">
+		<img src="<%= user.get('photoUrl') %>" alt="<%- user.get('name') %>" />
+	</div>
+	<div class="row">
+		<span class="title">Name</span>
+		<span class="value"><%- user.get('name') %></span>
+	</div>
+	<div class="row">
+		<span class="title">Anywhereists Username</span>
+		<span class="value"><%- user.get('anywhereistUsername') %></span>
+	</div>
+	<div class="row">
+		<span class="title">What I Do</span>
+		<span class="value"><%- user.get('whatIDo') %></span>
+	</div>
+	<div class="row">
+		<span class="title">About Me</span>
+		<span class="value"><%- user.get('aboutMe') %></span>
+	</div>
+	<% _.each(['website1', 'website2', 'website3', 'website4', 'website5', 'facebook', 'twitter', 'foursquare'],
+			function (value, key, list) { 
+	%>
+		<div class="row">
+			<span class="title"><%= value.toTitleCase() %></span>
+			<span class="value"><%- value %></span>
+		</div>
+	<%		}
+		); %> 
+	
+
+</div>
