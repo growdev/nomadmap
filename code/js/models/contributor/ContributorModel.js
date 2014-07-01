@@ -1,9 +1,9 @@
 define([
   'underscore',
-  'backbone',
-], function(_, Backbone) {
+  'parse',
+], function(_, Parse) {
 
-  var ContributorModel = Backbone.Model.extend({
+  var ContributorModel = Parse.Model.extend({
 
   	defaults : {
   		medalHex : '#A67D3D',

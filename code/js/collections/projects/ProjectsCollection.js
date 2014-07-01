@@ -1,10 +1,10 @@
 define([
   'jquery',
   'underscore',
-  'backbone',
+  'parse',
   'models/project/ProjectModel'
-], function($, _, Backbone, ProjectModel){
-  var ProjectsCollection = Backbone.Collection.extend({
+], function($, _, Parse, ProjectModel){
+  var ProjectsCollection = Parse.Collection.extend({
     model: ProjectModel,
     
     initialize: function(){

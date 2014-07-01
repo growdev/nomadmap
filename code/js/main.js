@@ -1,16 +1,33 @@
-// Author: Thomas Davis <thomasalwyndavis@gmail.com>
-// Filename: main.js
+'use strict';
 
-// Require.js allows us to configure shortcut alias
-// Their usage will become more apparent futher along in the tutorial.
 require.config({
   paths: {
+    backbone: 'libs/backbone/backbone-min',
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min',
-    backbone: 'libs/backbone/backbone-min',
+    parse: 'libs/parse/parse.min',
     templates: '../templates'
+  },
+  shim: {
+      underscore: {
+          exports: '_'
+      },
+      backbone: {
+          deps: [
+              'underscore',
+              'jquery'
+          ],
+          exports: 'Backbone'
+      },
+      bootstrap: {
+          deps: ['jquery'],
+          exports: 'jquery'
+      },
+      parse: {
+          deps: ['jquery', 'underscore'],
+          exports: 'Parse'
+      }
   }
-
 });
 
 require([

@@ -1,10 +1,10 @@
 define([
   'underscore',
-  'backbone',
+  'parse',
   'models/contributor/ContributorModel'
-], function(_, Backbone, ContributorModel){
+], function(_, Parse, ContributorModel){
 
-  var ContributorsCollection = Backbone.Collection.extend({
+  var ContributorsCollection = Parse.Collection.extend({
       
       model: ContributorModel,
 

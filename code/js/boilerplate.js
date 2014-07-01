@@ -1,8 +1,8 @@
 define([
   'jQuery',
   'Underscore',
-  'Backbone'
-], function($, _, Backbone){
+  'Parse'
+], function($, _, Parse){
 
   return {};
 });

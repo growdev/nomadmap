@@ -3,10 +3,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'parse',
   'views/home/HomeView',
   'views/profile/ProfileView',
   'views/footer/FooterView'
-], function($, _, Backbone, HomeView, ProfileView, FooterView) {
+], function($, _, Backbone, Parse, HomeView, ProfileView, FooterView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -19,6 +20,8 @@ define([
   });
   
   var initialize = function(){
+
+    Parse.initialize('GQOQo8VY22XFTOYEv7f2L9lqR03FhSG6jOaJ1pYL', 'ZtaNTnLyhjaOOzYTFf964XTtlpCWplkgIlijgrUs');
 
     var app_router = new AppRouter;
     

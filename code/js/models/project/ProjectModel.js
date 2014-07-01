@@ -1,9 +1,9 @@
 define([
   'underscore',
-  'backbone'
-], function(_, Backbone) {
+  'parse'
+], function(_, Parse) {
   
-  var ProjectModel = Backbone.Model.extend({});
+  var ProjectModel = Parse.Model.extend({});
 
   return ProjectModel;
 
