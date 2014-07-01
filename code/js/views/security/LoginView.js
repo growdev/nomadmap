@@ -27,9 +27,7 @@ define([
       
       Parse.User.logIn(username, password, {
         success: function(user) {
-          new ManageTodosView();
-          self.undelegateEvents();
-          delete self;
+          LoginView.prototype.goTo("#/profile");
         },
 
         error: function(user, error) {
