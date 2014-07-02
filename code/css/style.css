@@ -72,3 +72,7 @@ input[required]::after { content: "*"; }
 #map-canvas {
   height: 600px;
 }
+
+#map-canvas img { /* https://github.com/twbs/bootstrap/issues/1552 */
+  max-width: none;
+}

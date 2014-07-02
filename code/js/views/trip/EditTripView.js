@@ -14,7 +14,8 @@ define([
     trip : null,
 
     events: {
-      "submit form.edit-trip-form": "save"
+      "submit form.edit-trip-form": "save",
+      "focusout form.edit-trip-form input[name=destination]" : "getCoordinates"
     },
 
     initialize: function(trip) {
@@ -52,7 +53,7 @@ define([
       self.trip.set('startDate', startDate);
       self.trip.set('endDate', endDate);
       self.trip.set('notes', $("textarea[name=notes]").val());
-      
+      self.trip.set('point', self.point);
       FeedbackView.prototype.activityMessage("Saving trip data");
 
       self.trip.save(null, {
@@ -68,6 +69,23 @@ define([
       });        
 
       return false;
+    },
+
+    getCoordinates: function() {
+      var address = $("input[name=destination]").val();
+      var self = this;
+      require(['async!http://maps.google.com/maps/api/js?sensor=false!callback'], function(){
+ 
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            self.point = new Parse.GeoPoint({latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng()});
+          } else {
+            FeedbackView.prototype.errorMessage('Geocode was not successful for the following reason: ' + status);
+          }
+        }); 
+      });
     }
   });
 
