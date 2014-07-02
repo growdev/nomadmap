@@ -1,0 +1,15 @@
+
+<h2>Your Upcoming Trips</h2>
+<div class="trips-list">
+	<% _.each(trips, function(trip){ %>
+	<div class="row">
+		In 
+		<span><%- trip.get("destination") %></span>
+		from 
+		<span><%- trip.formattedStartDate() %></span>
+		until 
+		<span><%- trip.formattedEndDate() %></span>
+		<a data-id="<%= trip.id %>">Edit</a>
+	</div>
+	<% }); %>
+</div>

@@ -11,7 +11,11 @@ define([
   'views/security/SignupView',
   'views/footer/FooterView',
   'views/feedback/FeedbackView',
-], function($, _, Backbone, Parse, HomeView, ProfileView, EditProfileView, LoginView, SignupView, FooterView, FeedbackView) {
+  'views/staticPage/StaticPageView',
+  'views/trip/EditTripView',
+  'views/trip/ListTripsForCurrentUserView',
+  'models/trip/TripModel'
+], function($, _, Backbone, Parse, HomeView, ProfileView, EditProfileView, LoginView, SignupView, FooterView, FeedbackView, StaticPageView, EditTripView, ListTripsForCurrentUserView, TripModel) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -20,14 +24,30 @@ define([
       
       'signup' : 'signup',
 
+      'page/:page' : 'page',
+
       'logoff' : 'logoff',
+
+      'trips/:action' : 'trips',
+      'trips/edit/:tripId' : 'editTrip',
 
       // Default
       '*actions': 'defaultAction'
+    }, 
+
+    checkLogin: function () {
+      if (!Parse.User.current()) {
+        var loginView = new LoginView();
+        loginView.render();
+        FeedbackView.prototype.errorMessage("You must sign in to view this page");
+        return false;
+      } 
+
+      return true;
     }
   });
   
-  var initialize = function(){
+  var initialize = function (){
 
     Parse.initialize('GQOQo8VY22XFTOYEv7f2L9lqR03FhSG6jOaJ1pYL', 'ZtaNTnLyhjaOOzYTFf964XTtlpCWplkgIlijgrUs');
     var app_router = new AppRouter;
@@ -46,12 +66,59 @@ define([
         signupView.render();
     });
 
+    app_router.on('route:page', function (page) {
+        var staticPageView = new StaticPageView();
+        staticPageView.renderPage(page);
+    });
+
+    app_router.on('route:trips', function (action){
+    
+        if (!app_router.checkLogin()) {
+          return;
+        } 
+
+        if (action == "add") {
+          var trip = new TripModel();
+          var editTripView = new EditTripView(trip);
+          editTripView.render();
+          return;
+        }
+
+        if (action == "list") {
+          var listTrips = new ListTripsForCurrentUserView();
+          listTrips.render();
+          return;
+        }
+        
+        var staticPageView = new StaticPageView();
+        staticPageView.renderPage("not found");
+    });
+
+    app_router.on('route:editTrip', function (tripId){
+    
+        if (!app_router.checkLogin()) {
+          return;
+        } 
+
+        var tripModel = new TripModel();
+        var query = new Parse.Query(TripModel);
+
+        FeedbackView.prototype.activityMessage("Loading Trip");
+        query.get(tripId, {
+          success: function(trip) {
+            var editTripView = new EditTripView(trip);
+            editTripView.render();
+            FeedbackView.prototype.dismiss();
+          },
+          error: function(trip, error) {
+            FeedbackView.prototype.errorMessage("Error loading trip: " + error.message);
+          }
+        });
+    });
+
     app_router.on('route:editProfile', function(){
     
-        if (!Parse.User.current()) {
-          var loginView = new LoginView();
-          loginView.render();
-          FeedbackView.prototype.errorMessage("You must sign in to view this page");
+        if (!app_router.checkLogin()) {
           return;
         } 
 
@@ -68,10 +135,7 @@ define([
 
     app_router.on('route:defaultAction', function (actions) {
         
-        if (!Parse.User.current()) {
-          var loginView = new LoginView();
-          loginView.render();
-          FeedbackView.prototype.errorMessage("You must sign in to view this page");
+        if (!app_router.checkLogin()) {
           return;
         } 
 
@@ -88,6 +152,7 @@ define([
 
     Backbone.history.start();
   };
+
   return { 
     initialize: initialize
   };

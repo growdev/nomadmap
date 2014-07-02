@@ -1,0 +1,22 @@
+<h2>Edit Trip</h2>
+<div class="trip">
+	<form class="edit-trip-form">
+		<div class="row" >
+			<label for="destination">Destination:</label>
+			<input name="destination" value="<%- trip.get('destination') %>" required/>
+		</div>
+		<div class="row">
+			<label for="startDate">Start Date:</label>
+			<input type="date" name="startDate" value="<%= tripStart %>" required/>
+		</div>
+		<div class="row">
+			<label for="endDate">End Date:</label>
+			<input type="date" name="endDate" value="<%= tripEnd %>" required/>
+		</div>
+		<div class="row">
+			<label for="notes">Notes:</label>
+			<textarea name="notes"><%- trip.get('notes') %></textarea>
+		</div>
+		<button>Save</button>
+	</form>
+</div>

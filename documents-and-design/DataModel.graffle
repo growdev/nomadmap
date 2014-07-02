@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {559, 783}}</string>
+		<string>{{0, 0}, {559.19998741149902, 782.79998779296875}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -58,8 +58,8 @@
 			<integer>58</integer>
 			<key>Points</key>
 			<array>
-				<string>{139.33189217501868, 111.44012257690665}</string>
-				<string>{184.86977484857414, 124.04988302977809}</string>
+				<string>{139.33143811274911, 111.66956804731726}</string>
+				<string>{184.86923165753055, 124.44529193565043}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -438,8 +438,8 @@ EndDate}</string>
 			<integer>47</integer>
 			<key>Points</key>
 			<array>
-				<string>{409.85535702017569, 130.34199187590363}</string>
-				<string>{370.84371389871319, 136.10244683371013}</string>
+				<string>{409.86179354170338, 122.98291023735621}</string>
+				<string>{370.83948551037167, 131.61419564310921}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -468,7 +468,7 @@ EndDate}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{410.34999370574951, 59}, {112, 126}}</string>
+					<string>{{410.34999370574951, 59}, {134.5, 98}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -499,9 +499,8 @@ EndDate}</string>
 
 \f0\fs24 \cf0 UniqueId\
 Nomad.UniqueId\
-Longitude\
-Latitude (parse geopoints?)\
-PlaceName\
+Point (Parse GeoPoint)\
+Destination\
 StartDate\
 EndDate\
 Notes}</string>
@@ -513,7 +512,7 @@ Notes}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{410.34999370574951, 45}, {112, 14}}</string>
+					<string>{{410.34999370574951, 45}, {134.5, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -711,7 +710,7 @@ referredBy}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-07-01 03:37:22 +0000</string>
+	<string>2014-07-02 00:40:27 +0000</string>
 	<key>Modifier</key>
 	<string>Lewis Smith</string>
 	<key>NotesVisible</key>
@@ -742,22 +741,12 @@ referredBy}</string>
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{595, 842}</string>
+			<string>{595.19998741149902, 841.79998779296875}</string>
 		</array>
 		<key>NSPrintReverseOrientation</key>
 		<array>
 			<string>coded</string>
 			<string>BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU051bWJlcgCEhAdOU1ZhbHVlAISECE5TT2JqZWN0AIWEASqEhAFxlwCG</string>
-		</array>
-		<key>NSPrinter</key>
-		<array>
-			<string>coded</string>
-			<string>BAtzdHJlYW10eXBlZIHoA4QBQISEhAlOU1ByaW50ZXIAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwEghoY=</string>
-		</array>
-		<key>NSPrinterName</key>
-		<array>
-			<string>string</string>
-			<string> </string>
 		</array>
 		<key>NSRightMargin</key>
 		<array>

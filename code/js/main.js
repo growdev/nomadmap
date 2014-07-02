@@ -6,7 +6,7 @@ require.config({
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min',
     parse: 'libs/parse/parse.min',
-    templates: '../templates'
+    templates: '../templates',
   },
   shim: {
       // underscore: {
@@ -28,6 +28,10 @@ require.config({
           exports: 'Parse'
       }, 
       'jquery.toTitleCase': {
+        deps: ['jquery'],
+        wrapShim: true
+      },
+      'jquery.dbFormat': {
         deps: ['jquery'],
         wrapShim: true
       }
