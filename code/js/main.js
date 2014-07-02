@@ -10,20 +10,6 @@ require.config({
     async: 'libs/require/async',
   },
   shim: {
-      // underscore: {
-      //     exports: '_'
-      // },
-      // backbone: {
-      //     deps: [
-      //         'underscore',
-      //         'jquery'
-      //     ],
-      //     exports: 'Backbone'
-      // },
-      // bootstrap: {
-      //     deps: ['jquery'],
-      //     exports: 'jquery'
-      // },
       parse: {
           deps: ['jquery', 'underscore'],
           exports: 'Parse'
