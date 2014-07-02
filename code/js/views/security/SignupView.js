@@ -6,7 +6,7 @@ define([
   'views/profile/ProfileView',
   'views/feedback/FeedbackView',
   'text!templates/security/signupTemplate.html'
-], function($, _, Backbone, Parse, ProfileView, FeedbackView, ActivityView, signupTemplate){
+], function($, _, Backbone, Parse, ProfileView, FeedbackView, signupTemplate){
 
   var SignupView = Backbone.View.extend({
     el: $("#page"),

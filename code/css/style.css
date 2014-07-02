@@ -68,3 +68,7 @@ h1{
 }
 
 input[required]::after { content: "*"; }
+
+#map-canvas {
+  height: 600px;
+}

@@ -23,8 +23,8 @@ define([
 
     render: function(){
      
-      // $('.menu li').removeClass('active');
-      // $('.menu li a[href="'+window.location.hash+'"]').parent().addClass('active');
+      $('.menu li').removeClass('active');
+      $('.menu li a[href="#/trips/list"]').parent().addClass('active');
       
       var startDateFormatted = "";
       if (this.trip.get("startDate") && this.trip.get("startDate") instanceof Date) {

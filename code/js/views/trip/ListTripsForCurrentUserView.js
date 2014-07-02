@@ -19,11 +19,12 @@ define([
 
     render: function (){
       
-      // $('.menu li').removeClass('active');
-      // $('.menu li a[href="'+window.location.hash+'"]').parent().addClass('active');
+      $('.menu li').removeClass('active');
+      $('.menu li a[href="#/trips/list"]').parent().addClass('active');
       
       var myTrips = new TripsCollection(); //Parse.Query(new TripModel()).greaterThanOrEqualTo("endDate", new Date()).equalTo("nomad", Parse.User.currentUser());
       myTrips.query = new Parse.Query(TripModel);
+      myTrips.query.equalTo('nomad', Parse.User.current());
 
       FeedbackView.prototype.activityMessage("Loading trips...");
 

@@ -7,6 +7,7 @@ require.config({
     underscore: 'libs/underscore/underscore-min',
     parse: 'libs/parse/parse.min',
     templates: '../templates',
+    async: 'libs/require/async',
   },
   shim: {
       // underscore: {
