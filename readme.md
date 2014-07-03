@@ -25,9 +25,11 @@ The project is based on the example at [Backbone Tutorials](http://backbonetutor
 	- main.js  the bootstrap. add references to external libraries here
 	- router.js  this takes the url and parses it and decides which view to load
 
+	- boilerplate.js  copy and paste this file when creating a new view		 
+
 	- playgrounds/  a safe place to mess around with things in Parse
 
-- documents-and-design  there's a data model diagram and a diagram overview of the structure. source docs are omnigraffle
+- documents-and-design/  there's a data model diagram and a diagram overview of the structure. Source docs are [Omnigraffle](http://www.omnigroup.com/OmniGraffle)
 
 - todo.txt  list of quick fixes and tech things that need doing. working through the quick fixes is in here is a fast way to get introduced to the project. 
 
@@ -35,7 +37,7 @@ The project is based on the example at [Backbone Tutorials](http://backbonetutor
 	cd <path to repo>/code
 	node r.js -o build.js
 
-This requires node.js to be installed on your local machine, but the r.js file is included in the distribution
+This requires node.js to be installed on your local machine, but the r.js file is included in the distribution.
 
 ### To change between minified and dev version
 There's two script tags in the index html, uncomment one and comment out the other to switch between minified and dev versions.
