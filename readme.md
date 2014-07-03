@@ -6,6 +6,8 @@ Nomad Map allows registered users to see the whereabouts of other digital nomads
 - [Underscore](http://underscorejs.org) is used for templating
 - [jQuery](http://jquery.com) is used for DOM manipulation. The [datepicker](http://jqueryui.com/datepicker/) is a jQuery UI plugin
 - [RequireJS](http://requirejs.org) is used for keeping things modular and for build optimising
+- [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/) for maps and geo coding
+- [Bootstrap](http://getbootstrap.com) Included this by default, could easily be swapped for something else as nothing is really styled at the moment
 
 ## Project Structure
 The project is based on the example at [Backbone Tutorials](http://backbonetutorials.com/organizing-backbone-using-modules/):
