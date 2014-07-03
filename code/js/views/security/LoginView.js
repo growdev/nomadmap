@@ -8,7 +8,7 @@ define([
 ], function($, _, Backbone, Parse, FeedbackView, loginTemplate){
 
   var LoginView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
 
     events: {
       "submit form.login-form": "logIn"
@@ -35,7 +35,7 @@ define([
 
           FeedbackView.prototype.successMessage("Welcome, " + user.get('name'));
         
-          LoginView.prototype.goTo("#/profile");
+          LoginView.prototype.goTo("#/map");
         },
 
         error: function(user, error) {

@@ -76,3 +76,7 @@ input[required]::after { content: "*"; }
 #map-canvas img { /* https://github.com/twbs/bootstrap/issues/1552 */
   max-width: none;
 }
+
+a:hover { /* for links with no href */
+ cursor:pointer;
+}

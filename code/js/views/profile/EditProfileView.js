@@ -9,7 +9,7 @@ define([
 ], function($, _, Backbone, Parse, toTitleCase, FeedbackView, editProfileTemplate){
 
   var EditProfileView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
 
     events: {
       "submit form.edit-profile-form": "save"

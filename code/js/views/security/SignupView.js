@@ -9,7 +9,7 @@ define([
 ], function($, _, Backbone, Parse, ProfileView, FeedbackView, signupTemplate){
 
   var SignupView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
 
     events: {
       "submit form.signup-form": "signUp"

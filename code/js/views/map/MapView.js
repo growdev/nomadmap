@@ -11,7 +11,7 @@ define([
         ], function ($, _, Backbone, Parse, viewTemplate, TripsCollection, TripModel, FeedbackView, dbFormat){
 
   var MapView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
    
     events: {
       "change input[name=pick-date] ": "updateMap"

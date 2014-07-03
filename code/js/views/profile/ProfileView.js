@@ -8,7 +8,7 @@ define([
 ], function($, _, Backbone, Parse, toTitleCase, profileTemplate){
 
   var ProfileView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
     render: function(){
      
       $('.menu li').removeClass('active');

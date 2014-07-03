@@ -10,12 +10,13 @@ define([
 ], function($, _, Backbone, Parse, EditTripView, FeedbackView, viewTemplate, dbFormat){
 
   var EditTripView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
     trip : null,
 
     events: {
       "submit form.edit-trip-form": "save",
-      "focusout form.edit-trip-form input[name=destination]" : "getCoordinates"
+      "focusout form.edit-trip-form input[name=destination]" : "getCoordinates",
+      "click form.edit-trip-form .cancel" : "cancel",
     },
 
     initialize: function(trip) {
@@ -59,7 +60,7 @@ define([
       self.trip.save(null, {
         success: function(trip) {
           FeedbackView.prototype.successMessage("Trip saved");
-          self.render();
+          EditTripView.prototype.goTo('#/trips/list');
         },
 
         error: function(trip, error) {
@@ -69,6 +70,10 @@ define([
       });        
 
       return false;
+    },
+
+    cancel: function() {
+      EditTripView.prototype.goTo('#/trips/list');
     },
 
     getCoordinates: function() {

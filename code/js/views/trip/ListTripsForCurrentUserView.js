@@ -11,7 +11,7 @@ define([
 ], function ($, _, Backbone, Parse, TripModel, TripsCollection, viewTemplate, FeedbackView, ListTripsForCurrentUserView){
 
   var ListTripsForCurrentUserView = Backbone.View.extend({
-    el: $("#page"),
+    // el: $("#page"),
 
     events: {
       "click .trips-list a": "edit"
