@@ -21,6 +21,10 @@ require.config({
       'jquery.dbFormat': {
         deps: ['jquery'],
         wrapShim: true
+      },
+      'jquery.ui': {
+        deps: ['jquery'],
+        wrapShim: true
       }
   }
 });

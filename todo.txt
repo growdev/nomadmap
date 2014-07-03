@@ -1,0 +1,11 @@
+Validation fixes:
+- trip end date must be in the future
+- end date must be >= start date
+- make trip saved redirect to trip list
+- disable save if no location found?
+- dates picker on map can only be a year into the future
+- new trips can only end up to a year in the future
+
+Tech stuff to do:
+- minify css
+- seperate build and non build folder or make build copy files into a new location

@@ -1,5 +1,5 @@
 <h2>Edit Trip</h2>
-<div class="trip">
+<div class="trip fluid-container">
 	<form class="edit-trip-form">
 		<div class="row" >
 			<label for="destination">Destination:</label>
@@ -7,11 +7,11 @@
 		</div>
 		<div class="row">
 			<label for="startDate">Start Date:</label>
-			<input type="date" name="startDate" value="<%= tripStart %>" required/>
+			<input type="text" name="startDate" required/>
 		</div>
 		<div class="row">
 			<label for="endDate">End Date:</label>
-			<input type="date" name="endDate" value="<%= tripEnd %>" required/>
+			<input type="text" name="endDate" required/>
 		</div>
 		<div class="row">
 			<label for="notes">Notes:</label>

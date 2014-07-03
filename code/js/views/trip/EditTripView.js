@@ -6,8 +6,9 @@ define([
   'views/trip/EditTripView',
   'views/feedback/FeedbackView',
   'text!templates/trip/editTripTemplate.html',
-  'jquery/jQuery.dbFormat'
-], function($, _, Backbone, Parse, EditTripView, FeedbackView, viewTemplate, dbFormat){
+  'jquery/jQuery.dbFormat',
+  'jquery/jQuery.ui'
+], function($, _, Backbone, Parse, EditTripView, FeedbackView, viewTemplate, dbFormat, datePicker){
 
   var EditTripView = Backbone.View.extend({
     // el: $("#page"),
@@ -28,18 +29,28 @@ define([
       $('.menu li').removeClass('active');
       $('.menu li a[href="#/trips/list"]').parent().addClass('active');
       
-      var startDateFormatted = "";
+      var compiledTemplate = _.template( viewTemplate, {trip: this.trip} );
+      this.$el.html(compiledTemplate);
+
+      $('input[name=startDate]').datepicker({
+        numberOfMonths: 3,
+        showButtonPanel: true
+      });
+
+      $('input[name=endDate]').datepicker({
+        numberOfMonths: 3,
+        showButtonPanel: true
+      });
+
       if (this.trip.get("startDate") && this.trip.get("startDate") instanceof Date) {
-        startDateFormatted = this.trip.get("startDate").dbFormat();
+        
+        $('input[name=startDate]').datepicker("setDate", this.trip.get("startDate"));
       } 
       
       var endDateFormatted = "";
       if (this.trip.get("endDate") && this.trip.get("endDate") instanceof Date) {
-        endDateFormatted = this.trip.get("endDate").dbFormat();
+        $('input[name=endDate]').datepicker("setDate", this.trip.get("endDate"));
       } 
-
-      var compiledTemplate = _.template( viewTemplate, {trip: this.trip, tripStart: startDateFormatted, tripEnd: endDateFormatted} );
-      this.$el.html(compiledTemplate);
     },
 
     save: function() {
@@ -48,9 +59,9 @@ define([
       
       self.trip.set('destination', $("input[name=destination]").val());  
 
-      var startDate = new Date( $("input[name=startDate]").val() );
-      var endDate = new Date( $("input[name=endDate]").val() );
-
+      var startDate = $('input[name=startDate]').datepicker("getDate");
+      var endDate = $('input[name=endDate]').datepicker("getDate");
+      
       self.trip.set('startDate', startDate);
       self.trip.set('endDate', endDate);
       self.trip.set('notes', $("textarea[name=notes]").val());

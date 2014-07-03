@@ -2,9 +2,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/owner/OwnerModel',
   'text!templates/footer/footerTemplate.html'
-], function($, _, Backbone, OwnerModel, footerTemplate){
+], function($, _, Backbone, footerTemplate){
 
   var FooterView = Backbone.View.extend({
     el: $("#footer"),
@@ -19,7 +18,6 @@ define([
 
       var data = {
         year: "" + new Date().getFullYear(),
-        _: _ 
       };
 
       var compiledTemplate = _.template( footerTemplate, data );

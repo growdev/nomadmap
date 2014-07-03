@@ -1,0 +1,93 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+    <h1>Sandbox</h1>
+    <div class="output">
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    Parse.initialize('GQOQo8VY22XFTOYEv7f2L9lqR03FhSG6jOaJ1pYL', 'ZtaNTnLyhjaOOzYTFf964XTtlpCWplkgIlijgrUs');
+    var TripModel = Parse.Object.extend("Trip");
+    var TripsCollection = Parse.Collection.extend("TripsCollection", {
+      model: TripModel
+    });
+
+    Parse.User.logIn("test", "test", {
+        success: function(user) {
+          console.log("Logged in");
+
+          var dateObject = new Date();
+
+          var myTrips = new TripsCollection(); //Parse.Query(new TripModel()).greaterThanOrEqualTo("endDate", new Date()).equalTo("nomad", Parse.User.currentUser());
+          myTrips.query = new Parse.Query(TripModel);
+          myTrips.query.include('nomad');
+
+          myTrips.query.find({
+            success: function(trips) {
+              console.log("found " + trips.length + " trips");
+
+              _.each(trips, function(trip){
+                var point = trip.get('point');
+                  if (!point) {
+                    console.log("no point");
+                    return; // is continue
+                  }
+
+                  var nomad = trip.get('nomad');
+                  // console.log(nomad);
+                  console.log(nomad.id);
+                  console.log(nomad.get('name'));
+                              
+                  if (!nomad.get('name')) {
+                    console.log("can't find users name, doing another search");
+
+                    var nomadQuery = new Parse.Query(Parse.User);
+                    nomadQuery.equalTo('objectId', nomad.id);
+
+                    nomadQuery.find({
+                      success: function(users) {
+                        console.log("found " + users.length + " users");
+                        console.log(users);
+                      }, 
+
+                      error: function(error) {
+                        console.log("error reading nomad: " + error.message);
+                      }
+                    });
+
+                  }
+
+              });
+            },
+
+            error: function(error) {
+              console.log("Problem loading trips: " + error.message);
+            }
+          });
+
+        },
+        
+        error: function(user, error) { // failed to login
+          console.log("failed to login");
+        }
+      });
+
+  </script>
+</body>
+
+</html>

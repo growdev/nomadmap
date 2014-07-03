@@ -1,0 +1,29 @@
+<div id="marker" class="container-fluid">
+	<h2><%- user.get('name') %></h2>
+	<p>In <%- destination %> between <%- startDate %> and <%- endDate %></p>
+
+	<% /* e.g. { field: "whatIDo", display : "What I Do"} */ %>
+	<% _.each(fields, function (data) { 
+		if (user.get(data.field)) {
+	%>
+		<div class="row">
+			<span class="label"><%- data.display %>:</span>
+			<%- user.get(data.field) %>
+		</div>	
+	<% 
+		}
+	}); 
+	%>
+	<% /* e.g. { field: "facebook", display : "What I Do", urlPrefix: "https://wwww.facebook.com/" } */ %>
+	<% _.each(urls, function (url) { 
+		if (user.get(url.field)) {
+	%>
+		<div class="row">
+			<span class="label"><%- url.display %>:</span>
+			<a href="<%= url.urlPrefix %><%= user.get(url.field) %>" target="_blank"><%- user.get(url.field) %></a>
+		</div>	
+	<% 
+		}
+	}); 
+	%>
+</div>

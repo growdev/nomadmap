@@ -1,27 +1,27 @@
 <h2><%- user.get('name') %></h2>
-<div class="userProfile">
+<div class="userProfile container-fluid">
 	<form class="edit-profile-form">
 		<div class="row" >
-			<label for="name">Name:</label>
+			<label for="name" class="label">Name:</label>
 			<input name="name" value="<%- user.get('name') %>" required/>
 		</div>
 		<div class="row">
-			<label for="email">Email:</label>
+			<label for="email" class="label">Email:</label>
 			<input name="email" value="<%- user.get('email') %>" required/>
 		</div>
 		<div class="row">
-			<label for="whatIDo">What I Do:</label>
+			<label for="whatIDo" class="label">What I Do:</label>
 			<input name="whatIDo" value="<%- user.get('whatIDo') %>" required/>
 		</div>
 		<div class="row">
-			<label for="aboutMe">About Me:</label>
+			<label for="aboutMe" class="label">About Me:</label>
 			<textarea name="aboutMe"><%- user.get('aboutMe') %></textarea>
 		</div>
 		<% _.each(['facebook', 'twitter', 'foursquare', 'website1', 'website2', 'website3', 'website4', 'website5'],
 				function (value, key, list) { 
 		%>
 			<div class="row">
-				<label for="<%= value %>"><%- value.toTitleCase() %></label>
+				<label for="<%= value %>" class="label"><%- value.toTitleCase() %></label>
 				<input name="<%= value %>" value="<%- user.get(value) %>"/>
 			</div>
 		<%		}

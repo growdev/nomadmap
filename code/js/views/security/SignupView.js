@@ -3,10 +3,9 @@ define([
   'underscore',
   'backbone',
   'parse',
-  'views/profile/ProfileView',
   'views/feedback/FeedbackView',
   'text!templates/security/signupTemplate.html'
-], function($, _, Backbone, Parse, ProfileView, FeedbackView, signupTemplate){
+], function($, _, Backbone, Parse, FeedbackView, signupTemplate){
 
   var SignupView = Backbone.View.extend({
     // el: $("#page"),
@@ -45,7 +44,7 @@ define([
           $('.nav').append("<li class='logoff'><a href='#/logoff'>Logoff</a></li>");
           FeedbackView.prototype.successMessage("Account created");
           
-          SignupView.prototype.goTo("#/editProfile");      
+          SignupView.prototype.goTo("#/profile");      
         },
 
         error: function(nomad, error) {

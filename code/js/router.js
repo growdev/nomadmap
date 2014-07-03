@@ -4,8 +4,6 @@ define([
   'underscore',
   'backbone',
   'parse',
-  'views/home/HomeView',
-  'views/profile/ProfileView',
   'views/profile/EditProfileView',
   'views/security/LoginView',
   'views/security/SignupView',
@@ -16,7 +14,7 @@ define([
   'views/trip/ListTripsForCurrentUserView',
   'views/map/MapView',
   'models/trip/TripModel'
-], function($, _, Backbone, Parse, HomeView, ProfileView, EditProfileView, LoginView, SignupView, FooterView, FeedbackView, StaticPageView, EditTripView, ListTripsForCurrentUserView, MapView, TripModel) {
+], function($, _, Backbone, Parse, EditProfileView, LoginView, SignupView, FooterView, FeedbackView, StaticPageView, EditTripView, ListTripsForCurrentUserView, MapView, TripModel) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -40,7 +38,7 @@ define([
     },
 
     currentView: null,
-    el: $("#page"),
+    el: $("#page"), // where content gets loaded
 
     checkLogin: function () {
       if (!Parse.User.current()) {
@@ -100,7 +98,7 @@ define([
 
     app_router.on('route:page', function (page) {
         var staticPageView = new StaticPageView();
-        staticPageView.templateName = 'notFound';
+        staticPageView.templateName = page;
         app_router.switchView(staticPageView);
     });
 
@@ -191,7 +189,7 @@ define([
         loginView.render();
         this.switchView(loginView);
     });
-    
+
     app_router.on('route:defaultAction', function (actions) {
       var staticPageView = new StaticPageView();
       staticPageView.templateName = 'notFound';

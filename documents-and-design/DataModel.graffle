@@ -49,6 +49,18 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>w</key>
+					<string>0</string>
+				</dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -58,8 +70,8 @@
 			<integer>58</integer>
 			<key>Points</key>
 			<array>
-				<string>{139.33143811274911, 111.66956804731726}</string>
-				<string>{184.86923165753055, 124.44529193565043}</string>
+				<string>{139.33116322954385, 111.80734296559193}</string>
+				<string>{184.86890847522164, 124.68272554113447}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -175,6 +187,18 @@ UsingNomad}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>w</key>
+					<string>0</string>
+				</dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -208,6 +232,18 @@ UsingNomad}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>w</key>
+					<string>0</string>
+				</dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -241,6 +277,18 @@ UsingNomad}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>w</key>
+					<string>0</string>
+				</dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -250,8 +298,8 @@ UsingNomad}</string>
 			<integer>52</integer>
 			<key>Points</key>
 			<array>
-				<string>{273.8500205448031, 482.5}</string>
-				<string>{273.8500205448031, 510.42704639749456}</string>
+				<string>{273.85000610351562, 482.5}</string>
+				<string>{273.85000610351562, 510.42704454471209}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -359,6 +407,18 @@ TBD}</string>
 			<string>{{246.85000610351562, 510}, {54, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>w</key>
+					<string>0</string>
+				</dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>ID</key>
 			<integer>9</integer>
 			<key>Shape</key>
@@ -429,6 +489,18 @@ EndDate}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>w</key>
+					<string>0</string>
+				</dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -438,8 +510,8 @@ EndDate}</string>
 			<integer>47</integer>
 			<key>Points</key>
 			<array>
-				<string>{409.86179354170338, 122.98291023735621}</string>
-				<string>{370.83948551037167, 131.61419564310921}</string>
+				<string>{409.86657922546652, 118.89435940605469}</string>
+				<string>{370.83681635185849, 129.20555676340535}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -468,7 +540,7 @@ EndDate}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{410.34999370574951, 59}, {134.5, 98}}</string>
+					<string>{{410.34999370574951, 59}, {134.5, 84}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -497,13 +569,12 @@ EndDate}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
-\f0\fs24 \cf0 UniqueId\
-Nomad.UniqueId\
-Point (Parse GeoPoint)\
-Destination\
-StartDate\
-EndDate\
-Notes}</string>
+\f0\fs24 \cf0 nomad (User)\
+point (Parse GeoPoint)\
+destination\
+startDate\
+endDate\
+notes}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -590,7 +661,7 @@ Notes}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
 
-\f0\b\fs24 \cf0 Nomad}</string>
+\f0\b\fs24 \cf0 User}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -710,7 +781,7 @@ referredBy}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-07-02 00:40:27 +0000</string>
+	<string>2014-07-03 06:36:18 +0000</string>
 	<key>Modifier</key>
 	<string>Lewis Smith</string>
 	<key>NotesVisible</key>

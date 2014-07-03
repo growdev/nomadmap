@@ -1,8 +1,17 @@
 define([
-  'jQuery',
-  'Underscore',
-  'Parse'
-], function($, _, Parse){
+  'jquery',
+  'underscore',
+  'backbone',
+  'text!templates/**template folder**/** template name **Template.html'
+], function($, _, Backbone, viewTemplate){
 
-  return {};
+  var **VIEW NAME** = Backbone.View.extend({
+    render: function(){
+      this.$el.html(template);
+    }
+
+  });
+
+  return **VIEW NAME**;
+  
 });
