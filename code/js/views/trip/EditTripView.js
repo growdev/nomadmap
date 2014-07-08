@@ -61,7 +61,19 @@ define([
 
       var startDate = $('input[name=startDate]').datepicker("getDate");
       var endDate = $('input[name=endDate]').datepicker("getDate");
-      
+
+      // FIXME : should be 2 methods (isDateInFuture & isDateBefore. This should also be on the backend)
+      var now = new Date();
+      if (startDate < now) {
+        FeedbackView.prototype.errorMessage('Start date must be in the future');
+        return false;
+      }
+
+      if (startDate > endDate) {
+        FeedbackView.prototype.errorMessage('Start date must be equals or before the end date');
+        return false; 
+      }
+
       self.trip.set('startDate', startDate);
       self.trip.set('endDate', endDate);
       self.trip.set('notes', $("textarea[name=notes]").val());

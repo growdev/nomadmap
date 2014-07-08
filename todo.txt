@@ -1,5 +1,6 @@
 Validation fixes:
 - trip end date must be in the future
+	-> Added to the code EditTripView.js - Should be on the backend (at least) + independent methods (shared by the client and the backend?) [Mark G]
 - end date must be >= start date
 - disable save if no location found?
 - dates picker on map can only be a year into the future
