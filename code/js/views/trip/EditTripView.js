@@ -64,8 +64,8 @@ define([
 
       // FIXME : should be 2 methods (isDateInFuture & isDateBefore. This should also be on the backend)
       var now = new Date();
-      if (startDate < now) {
-        FeedbackView.prototype.errorMessage('Start date must be in the future');
+      if (endDate < now) {
+        FeedbackView.prototype.errorMessage('End date must be in the future');
         return false;
       }
 

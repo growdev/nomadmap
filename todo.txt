@@ -3,10 +3,14 @@ Validation fixes:
 	-> Added to the code EditTripView.js - Should be on the backend (at least) + independent methods (shared by the client and the backend?) [Mark G]
 - end date must be >= start date
 - disable save if no location found?
+- make date picker on map can only go a year into the future
+- new trips should only be able to end up to a year in the future
+
 - dates picker on map can only be a year into the future
 - new trips can only end up to a year in the future
 - if only one pin zoom out a bit (?)
 - if no pins set to a default location. chiang mai?!
+- disable save if no location found?
 
 Small fixes:
 - Map view: Close bubble when you open another
