@@ -26,7 +26,7 @@ define([
       ],
     urls: [
       { field: "facebook", display : "What I Do", urlPrefix: "https://wwww.facebook.com/" },
-      { field: "twitter", display : "What I Do", urlPrefix: "https://twiiter.com/" },
+      { field: "twitter", display : "What I Do", urlPrefix: "https://twitter.com/" },
       { field: "foursquare", display : "What I Do", urlPrefix: "https://foursquare.com/" },
       { field: "website1", display : "Web 1", urlPrefix: "http://" },
       { field: "website2", display : "Web 2", urlPrefix: "http://" },
