@@ -7,6 +7,7 @@ define([
   'views/profile/EditProfileView',
   'views/security/LoginView',
   'views/security/SignupView',
+  'views/security/ResetView',
   'views/footer/FooterView',
   'views/feedback/FeedbackView',
   'views/staticPage/StaticPageView',
@@ -14,7 +15,7 @@ define([
   'views/trip/ListTripsForCurrentUserView',
   'views/map/MapView',
   'models/trip/TripModel'
-], function($, _, Backbone, Parse, EditProfileView, LoginView, SignupView, FooterView, FeedbackView, StaticPageView, EditTripView, ListTripsForCurrentUserView, MapView, TripModel) {
+], function($, _, Backbone, Parse, EditProfileView, LoginView, SignupView, ResetView, FooterView, FeedbackView, StaticPageView, EditTripView, ListTripsForCurrentUserView, MapView, TripModel) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -25,6 +26,8 @@ define([
       'signup'              : 'signup',
       'logoff'              : 'logoff',
       'login'               : 'login',
+      'reset'               : 'reset',
+      'resetDone'           : 'resetDone', 
 
       'profile'             : 'editProfile',
       
@@ -94,6 +97,18 @@ define([
     app_router.on('route:signup', function (actions) {
         var signupView = new SignupView();
         app_router.switchView(signupView);
+    });
+
+    app_router.on('route:reset', function (actions) {
+        FeedbackView.prototype.dismiss();
+        var resetView = new ResetView();
+        app_router.switchView(resetView);
+    });
+
+    app_router.on('route:resetDone', function (actions) {
+        FeedbackView.prototype.successMessage("Password reset");
+        var loginView = new LoginView();
+        app_router.switchView(loginView);
     });
 
     app_router.on('route:page', function (page) {
@@ -187,7 +202,7 @@ define([
     app_router.on('route:login', function(actions) {
         var loginView = new LoginView();
         loginView.render();
-        this.switchView(loginView);
+        app_router.switchView(loginView);
     });
 
     app_router.on('route:defaultAction', function (actions) {
